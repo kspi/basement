@@ -7,7 +7,7 @@ class MovementObstructed(Exception):
 
 class Actor(Object):
     def __init__(self, tile):
-        assert(tile.is_passable and not tile.is_occupied)
+        assert(not tile.is_occupied)
         tile.actor = self
         self.tile = tile
 
