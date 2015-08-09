@@ -121,7 +121,7 @@ class Level:
         import noise
         def dnorm(x, mu, sig):
             return math.exp(-pow(x - mu, 2.) / (2 * pow(sig, 2.)))
-        extent = sigma * 1.5
+        extent = int(sigma * 1.5)
         level = Level()
         for x in range(-extent, extent):
             for y in range(-extent, extent):
