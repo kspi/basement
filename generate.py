@@ -35,7 +35,7 @@ def caverns():
         bx = random.normalvariate(ex, sigma)
         by = random.normalvariate(ey, sigma)
         sm = 5
-        sk = 5
+        sk = 10
         bsize = random.gammavariate(sk, sk / sm)
         for x in range(size):
             for y in range(size):
