@@ -17,7 +17,6 @@ class Actor(Object):
         assert(not tile.is_occupied)
         tile.actor = self
         self.tile = tile
-        self.level = tile.level
 
     @property
     def x(self):
