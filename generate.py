@@ -10,13 +10,16 @@ def dnorm(x, mu, sig):
     return numpy.exp(-numpy.pow(x - mu, 2.) / (2 * numpy.pow(sig, 2.)))
 
 
-def bitmap_level(bitmap):
+def bitmap_level(bitmap, xofs, yofs):
     level = Level()
     w, h = bitmap.shape
     for x in range(w):
         for y in range(h):
             if bitmap[x, y]:
-                level[x, y] = Ground
+                lx = x + xofs
+                ly = y + yofs
+                level[lx, ly] = Ground(level, lx, ly)
+    return level
 
 
 def caverns(granularity, radius):
