@@ -24,7 +24,7 @@ class Actor(Object):
         new_tile = level[x, y]
         if not new_tile.is_passable or new_tile.is_occupied:
             raise MovementObstructed
-        tile.actor = None
+        self.tile.actor = None
         self.tile = new_tile
         new_tile.actor = self
 
