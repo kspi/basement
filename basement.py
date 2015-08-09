@@ -129,7 +129,7 @@ class Level:
                 r = math.sqrt(x * x + y * y)
                 n = abs(noise.pnoise2(x / granularity, y / granularity))
                 d = dnorm(r, 0, sigma) * n
-                if d > 0.05:
+                if d > 0.04:
                     level[x, y] = Ground(level, x, y)
         return level
 
