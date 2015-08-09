@@ -125,7 +125,7 @@ class Level:
         xofs = random.randint(-10000, 10000)
         yofs = random.randint(-10000, 10000)
         radius = int(radius)
-        sigma = radius / 2
+        sigma = radius / 3
         level = Level()
         for x in range(-radius, radius):
             for y in range(-radius, radius):
