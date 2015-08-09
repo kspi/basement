@@ -129,7 +129,7 @@ class Level:
                 n = abs(noise.pnoise2(x / extent, y / extent))
                 print(n)
                 d = dnorm(r, 0, sigma) * n
-                if d > 0.1:
+                if d > 0.5:
                     level[x, y] = Ground(level, x, y)
                 else:
                     level[x, y] = Wall(level, x, y)
