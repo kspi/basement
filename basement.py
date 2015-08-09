@@ -72,7 +72,7 @@ class Ground(Tile):
 
 
 class Wall(Tile):
-    is_passable = True
+    is_passable = False
     symbol = '#'
 
 
