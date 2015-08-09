@@ -34,13 +34,12 @@ def caverns():
     for blob in range(10):
         bx = random.normalvariate(ex, sigma)
         by = random.normalvariate(ey, sigma)
-        sm = 100
-        sk = 90
+        sm = 30
+        sk = 30
         bsize = random.gammavariate(sk, sk / sm)
         for x in range(size):
             for y in range(size):
                 density[x, y] += normal_density(norm2(x - bx, y - by), 0, bsize)
-    print(numpy.max(density))
     density /= numpy.max(density)
 
     bitmap = density > 0.5
