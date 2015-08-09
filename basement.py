@@ -149,7 +149,7 @@ def main(stdscr):
 
         height, width = stdscr.getmaxyx()
         stdscr.clear()
-        stdscr.addstr(level.view(player.x - width // 2, player.y - height // 2, player.x + width // 2, player.y + height // 2))
+        stdscr.addstr(player.level.view(player.x - width // 2, player.y - height // 2, player.x + width // 2, player.y + height // 2))
         stdscr.move(height // 2, width // 2)
         c = chr(stdscr.getch())
         if c == 'q':
