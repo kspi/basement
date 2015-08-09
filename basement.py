@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import functools
 import fov
+import math
 
 
 class Object:
@@ -119,10 +120,11 @@ class Level:
         return level
 
     @staticmethod
-    def generate_caverns(radius):
+    def generate_caverns(mu):
         import noise
-        def gaussian(x, mu, sig):
-            return np.exp(-np.power(x - mu, 2.) / (2 * np.power(sig, 2.)))
+
+        def dnorm(x, mu, sig):
+            return math.exp(-math.pow(x - mu, 2.) / (2 * math.pow(sig, 2.)))
 
     def view(self, x0, y0, x1, y1):
         return '\n'.join(
