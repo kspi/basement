@@ -124,7 +124,12 @@ class Level:
         import noise
         def dnorm(x, mu, sig):
             return math.exp(-pow(x - mu, 2.) / (2 * pow(sig, 2.)))
-        maxr = sigma * 3
+        extent = sigma * 3
+        level = Level()
+        for x in range(-extent, extent):
+            for y in range(-extent, extent):
+                r = math.sqrt(x * x + y * y)
+                d = dnorm(r, 0, sigma) * noise.pnoise2(x, y)
 
     def view(self, x0, y0, x1, y1):
         return '\n'.join(
