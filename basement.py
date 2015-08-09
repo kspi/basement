@@ -100,7 +100,7 @@ class Level:
     def _block(self, x, y):
         b = (x / self.BLOCK_SIZE, y / self.BLOCK_SIZE)
         if b not in self.blocks:
-            self.blocks[b] = [[Tile(self, b[0] + bx, b[1] + by) for bx in range(self.BLOCK_SIZE)] for by in range(self.BLOCK_SIZE)]
+            self.blocks[b] = [[Wall(self, b[0] + bx, b[1] + by) for bx in range(self.BLOCK_SIZE)] for by in range(self.BLOCK_SIZE)]
         return self.blocks[b]
 
     def __getitem__(self, xy):
@@ -116,9 +116,8 @@ class Level:
         level = Level()
         for y, line in enumerate(lines):
             for x, ch in enumerate(line):
-                if ch == ' ':
-                    ch = '#'
-                level[x, y] = Tile.from_symbol(ch)(level, x, y)
+                if ch != ' ':
+                    level[x, y] = Tile.from_symbol(ch)(level, x, y)
         return level
 
     @staticmethod
