@@ -94,7 +94,7 @@ class Level:
         self.blocks = {}
 
     def _block(self, x, y):
-        b = (x / self.BLOCK_SIZE, y / self.BLOCK_SIZE)
+        b = (x // self.BLOCK_SIZE, y // self.BLOCK_SIZE)
         if b not in self.blocks:
             self.blocks[b] = [[Wall(self, b[0] + bx, b[1] + by) for bx in range(self.BLOCK_SIZE)] for by in range(self.BLOCK_SIZE)]
         return self.blocks[b]
@@ -160,9 +160,9 @@ def main(stdscr):
     player = Player(caverns[0, 0])
 
     while True:
-        #fov.fieldOfView(player.x, player.y, 2,
-        #        lambda x, y: player.level[x, y].see(),
-        #        lambda x, y: not player.level[x, y].is_passable)
+        fov.fieldOfView(player.x, player.y, 2,
+                lambda x, y: player.level[x, y].see(),
+                lambda x, y: not player.level[x, y].is_passable)
 
         height, width = stdscr.getmaxyx()
         stdscr.clear()
