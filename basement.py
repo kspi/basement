@@ -136,7 +136,7 @@ def main(stdscr):
     while True:
         height, width = stdscr.getmaxyx()
         stdscr.clear()
-        stdscr.addstr(level.view(-width / 2, -height / 2, width / 2, height / 2))
+        stdscr.addstr(level.view(player.x - width / 2, player.y - height / 2, player.x + width / 2, player.y + height / 2))
         c = chr(stdscr.getch())
         if c == 'q':
             stdscr.addstr(0, 0, "Really quit? [yN] ")
