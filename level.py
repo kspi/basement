@@ -16,10 +16,14 @@ class InfiniteMatrix:
 
     def __getitem__(self, xy):
         x, y = xy
+        assert(isinstance(x, int))
+        assert(isinstance(y, int))
         return self._block(x, y)[x % self.block_size][y % self.block_size]
 
     def __setitem__(self, xy, value):
         x, y = xy
+        assert(isinstance(x, int))
+        assert(isinstance(y, int))
         self._block(x, y)[x % self.block_size][y % self.block_size] = value
 
     def view(self, x0, y0, x1, y1):
