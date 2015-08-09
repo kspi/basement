@@ -32,7 +32,7 @@ class Actor(Object):
         self.move_to(self.tile.x + dx, self.tile.y + dy)
 
 
-class Player(Object):
+class Player(Actor):
     symbol = '@'
 
 
