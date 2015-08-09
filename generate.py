@@ -27,7 +27,8 @@ def bitmap_level(bitmap, xofs, yofs):
 
 
 def caverns():
-    size = 100
-    sigma = size / 2
-    bitmap = numpy.ndarray(
+    size = 300
+    sigma = size / 4
+    ex, ey = size / 2, size / 2
+    bitmap = numpy.ndarray((size, size), numpy.uint8)
     return bitmap_level(bitmap, ex, ey)
