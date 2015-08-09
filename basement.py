@@ -129,7 +129,7 @@ class Level:
                 r = math.sqrt(x * x + y * y)
                 n = abs(noise.pnoise2(x / granularity, y / granularity))
                 d = dnorm(r, 0, sigma) * n
-                if d > 0.07:
+                if d > 0.09:
                     level[x, y] = Ground(level, x, y)
         return level
 
@@ -153,7 +153,7 @@ def main(stdscr):
         "               #####################",
     ])
 
-    caverns = Level.generate_caverns(10, 100)
+    caverns = Level.generate_caverns(20, 100)
 
     movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
 
