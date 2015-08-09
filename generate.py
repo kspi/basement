@@ -27,7 +27,7 @@ def bitmap_level(bitmap, xofs, yofs):
 
 
 def caverns():
-    size = 30
+    size = 300
     sigma = size / 40
     ex, ey = size // 2, size // 2
     density = numpy.zeros((size, size), numpy.float32)
