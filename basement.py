@@ -140,7 +140,10 @@ def main(stdscr):
     player = Player(level[3, 3])
 
     while True:
-        level.update_fov()
+        fov.fieldOfView(player.x, player.y, 5,
+                lambda x, y: level[x, y].seen = True,
+                lambda x, y: not level[x, y].is_passable)
+
         height, width = stdscr.getmaxyx()
         stdscr.clear()
         stdscr.addstr(level.view(player.x - width // 2, player.y - height // 2, player.x + width // 2, player.y + height // 2))
