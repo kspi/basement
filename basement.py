@@ -130,8 +130,6 @@ class Level:
                 d = dnorm(r, 0, sigma) * n
                 if d > 0.5:
                     level[x, y] = Ground(level, x, y)
-                else:
-                    level[x, y] = Wall(level, x, y)
         return level
 
     def view(self, x0, y0, x1, y1):
