@@ -123,8 +123,7 @@ def main(stdscr):
 
     movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
 
-    player = Player()
-    level[3, 3].actor = player
+    player = Player(level[3, 3])
 
     while True:
         stdscr.clear()
