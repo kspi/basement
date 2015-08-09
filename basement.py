@@ -120,7 +120,7 @@ class Level:
         return level
 
     @staticmethod
-    def generate_caverns(mu):
+    def generate_caverns(sigma):
         import noise
 
         def dnorm(x, mu, sig):
