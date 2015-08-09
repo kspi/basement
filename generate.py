@@ -43,7 +43,7 @@ def caverns():
         for x in range(size):
             for y in range(size):
                 density[x, y] += normal_density(norm2(x - bx, y - by), 0, bsize)
-    print(max(density))
+    print(numpy.max(density))
     density /= numpy.max(density)
 
     bitmap = density > 0.5
