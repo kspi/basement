@@ -116,6 +116,8 @@ class Level:
         level = Level()
         for y, line in enumerate(lines):
             for x, ch in enumerate(line):
+                if ch == ' ':
+                    ch = '#'
                 level[x, y] = Tile.from_symbol(ch)(level, x, y)
         return level
 
