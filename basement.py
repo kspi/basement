@@ -6,7 +6,7 @@ from level import InfiniteMatrix
 
 
 def main(stdscr):
-    caverns = generate.caverns(30, 100)
+    caverns = generate.caverns()
 
     movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
 
