@@ -6,7 +6,11 @@ import random
 import numpy
 
 
-def dnorm(x, mu, sig):
+def norm2(x, y):
+    return numpy.sqrt(x * x + y * y)
+
+
+def normal_density(x, mu, sig):
     return numpy.exp(-numpy.power(x - mu, 2.) / (2 * numpy.power(sig, 2.)))
 
 
@@ -23,6 +27,7 @@ def bitmap_level(bitmap, xofs, yofs):
 
 
 def caverns():
-    radius = int(radius)
-    
+    size = 100
+    sigma = size / 2
+    bitmap = numpy.ndarray(
     return bitmap_level(bitmap, ex, ey)
