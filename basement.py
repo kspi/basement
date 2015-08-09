@@ -47,9 +47,6 @@ class Player(Actor):
 
 
 class Tile(Object):
-    is_passable = False
-    symbol = ' '
-
     def __init__(self, level, x, y):
         self.level = level
         self.x = x
