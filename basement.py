@@ -124,7 +124,7 @@ class Level:
         import noise
 
         def dnorm(x, mu, sig):
-            return math.exp(-math.pow(x - mu, 2.) / (2 * math.pow(sig, 2.)))
+            return math.exp(-pow(x - mu, 2.) / (2 * pow(sig, 2.)))
 
     def view(self, x0, y0, x1, y1):
         return '\n'.join(
