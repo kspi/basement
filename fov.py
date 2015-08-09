@@ -5,7 +5,7 @@
     Description:    An implementation of the precise permissive field
                     of view algorithm for use in tile-based games.
                     Based on the algorithm presented at
-                    http://roguebasin.roguelikedevelopment.org/
+                    http://gc/roguebasin.roguelikedevelopment.org/
                       index.php?title=
                       Precise_Permissive_Field_of_View.
 
