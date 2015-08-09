@@ -126,10 +126,10 @@ class Level:
         for x in range(-extent, extent):
             for y in range(-extent, extent):
                 r = math.sqrt(x * x + y * y)
-                n = noise.pnoise2(x / extent, y / extent) * 0.5 + 0.5
+                n = abs(noise.pnoise2(x / extent, y / extent))
                 print(n)
                 d = dnorm(r, 0, sigma) * n
-                if d > 0.5:
+                if d > 0.001:
                     level[x, y] = Ground(level, x, y)
                 else:
                     level[x, y] = Wall(level, x, y)
