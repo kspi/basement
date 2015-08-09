@@ -118,6 +118,12 @@ class Level:
                 level[x, y] = Tile.from_symbol(ch)(level, x, y)
         return level
 
+    @staticmethod
+    def generate_caverns(radius):
+        import noise
+        def gaussian(x, mu, sig):
+            return np.exp(-np.power(x - mu, 2.) / (2 * np.power(sig, 2.)))
+
     def view(self, x0, y0, x1, y1):
         return '\n'.join(
             ''.join(str(self[x, y]) for x in range(x0, x1))
