@@ -135,8 +135,8 @@ def main(stdscr):
             if chr(stdscr.getch()).lower() == 'y':
                 return
         elif c in 'hjkl':
-            move = movement[c]
-            player.move_by(*move)
+            dxy = movement[c]
+            player.move_by(*dxy)
 
 
 if __name__ == '__main__':
