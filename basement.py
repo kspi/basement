@@ -36,5 +36,6 @@ def main(stdscr):
 
 
 if __name__ == '__main__':
-    from curses import wrapper
-    wrapper(main)
+    #from curses import wrapper
+    #wrapper(main)
+    print(generate.caverns().view(-40, -40, 40, 40))
