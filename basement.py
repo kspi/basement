@@ -38,4 +38,4 @@ def main(stdscr):
 if __name__ == '__main__':
     #from curses import wrapper
     #wrapper(main)
-    print(generate.caverns().view(-20, -20, 20, 20))
+    print(generate.caverns().view(-10, -40, 10, 40))
