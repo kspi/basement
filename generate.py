@@ -20,8 +20,8 @@ def bitmap_level(bitmap, xofs, yofs):
     for x in range(w):
         for y in range(h):
             if bitmap[x, y]:
-                lx = x + xofs
-                ly = y + yofs
+                lx = x - xofs
+                ly = y - yofs
                 level[lx, ly] = Ground(level, lx, ly)
     return level
 
