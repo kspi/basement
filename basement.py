@@ -123,7 +123,8 @@ def main(stdscr):
 
     movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
 
-    level[3, 3].actor = Player()
+    player = Player()
+    level[3, 3].actor = player
 
     while True:
         stdscr.clear()
@@ -134,6 +135,8 @@ def main(stdscr):
             if chr(stdscr.getch()).lower() == 'y':
                 return
         elif c in 'hjkl':
+            move = movement[c]
+            player.move_by(*move)
 
 
 if __name__ == '__main__':
