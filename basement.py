@@ -126,7 +126,7 @@ class Level:
 
 
 def main(stdscr):
-    level = Level.from_strings([
+    test_level = Level.from_strings([
         "###########                         ",
         "#.........#    #####################",
         "#.........######...................#",
@@ -140,7 +140,7 @@ def main(stdscr):
 
     movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
 
-    player = Player(level[3, 3])
+    player = Player(test_level[3, 3])
 
     while True:
         fov.fieldOfView(player.x, player.y, 5,
