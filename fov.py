@@ -16,18 +16,13 @@
 
 import copy
 
-def fieldOfView(startX, startY, mapWidth, mapHeight, radius, \
-  funcVisitTile, funcTileBlocked):
+def fieldOfView(startX, startY, radius, funcVisitTile, funcTileBlocked):
     """
         Determines which coordinates on a 2D grid are visible from a
         particular coordinate.
 
         startX, startY:         The (x, y) coordinate on the grid that
                                 is the centre of view.
-
-        mapWidth, mapHeight:    The maximum extents of the grid.  The
-                                minimum extents are assumed to be both
-                                zero.
 
         radius:                 How far the field of view may extend
                                 in either direction along the x and y
@@ -53,25 +48,10 @@ def fieldOfView(startX, startY, mapWidth, mapHeight, radius, \
     # Ge the dimensions of the actual field of view, making
     # sure not to go off the map or beyond the radius.
 
-    if startX < radius:
-        minExtentX = startX
-    else:
-        minExtentX = radius
-
-    if mapWidth - startX - 1 < radius:
-        maxExtentX = mapWidth - startX - 1
-    else:
-        maxExtentX = radius
-
-    if startY < radius:
-        minExtentY = startY
-    else:
-        minExtentY = radius
-
-    if mapHeight - startY - 1 < radius:
-        maxExtentY = mapHeight - startY - 1
-    else:
-        maxExtentY = radius
+    minExtentX = radius
+    maxExtentX = radius
+    minExtentY = radius
+    maxExtentY = radius
 
     # Northeast quadrant
     __checkQuadrant(visited, startX, startY, 1, 1, \
