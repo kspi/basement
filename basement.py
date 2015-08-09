@@ -122,7 +122,7 @@ class Level:
         def dnorm(x, mu, sig):
             return math.exp(-pow(x - mu, 2.) / (2 * pow(sig, 2.)))
         radius = int(radius)
-        sigma = radius / 1.6
+        sigma = radius / 2
         level = Level()
         for x in range(-radius, radius):
             for y in range(-radius, radius):
