@@ -67,7 +67,6 @@ class Tile(Object):
             return cls._symbol_map[symbol]
         except AttributeError:
             cls._symbol_map = {c.symbol: c for c in cls.__subclasses__()}
-            cls._symbol_map[cls.symbol] = cls
             return cls._symbol_map[symbol]
 
     def __str__(self):
