@@ -144,7 +144,7 @@ def main(stdscr):
 
     while True:
         fov.fieldOfView(player.x, player.y, 5,
-                lambda x, y: level[x, y].seen = True,
+                lambda x, y: level[x, y].see(),
                 lambda x, y: not level[x, y].is_passable)
 
         height, width = stdscr.getmaxyx()
