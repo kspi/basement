@@ -135,7 +135,10 @@ def main(stdscr):
                 return
         elif c in 'hjkl':
             dxy = movement[c]
-            player.move_by(*dxy)
+            try:
+                player.move_by(*dxy)
+            except MovementObstructed:
+                pass
 
 
 if __name__ == '__main__':
