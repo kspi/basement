@@ -122,7 +122,6 @@ class Level:
     @staticmethod
     def generate_caverns(sigma):
         import noise
-
         def dnorm(x, mu, sig):
             return math.exp(-pow(x - mu, 2.) / (2 * pow(sig, 2.)))
 
