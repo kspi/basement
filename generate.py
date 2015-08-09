@@ -22,6 +22,7 @@ def bitmap_level(bitmap, xofs, yofs):
     return level
 
 
-def caverns(granularity, radius):
+def caverns():
     radius = int(radius)
+    
     return bitmap_level(bitmap, ex, ey)
