@@ -127,7 +127,6 @@ class Level:
             for y in range(-radius, radius):
                 r = math.sqrt(x * x + y * y)
                 n = abs(noise.pnoise2(x / granularity, y / granularity))
-                print(n)
                 d = dnorm(r, 0, sigma) * n
                 if d > 0.5:
                     level[x, y] = Ground(level, x, y)
