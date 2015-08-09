@@ -31,7 +31,7 @@ def caverns():
     sigma = size / 40
     ex, ey = size // 2, size // 2
     density = numpy.zeros((size, size), numpy.float32)
-    for blob in range(2):
+    for blob in range(10):
         bx = random.normalvariate(ex, sigma)
         by = random.normalvariate(ey, sigma)
         sm = 100
