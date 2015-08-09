@@ -131,6 +131,7 @@ class Level:
                     level[x, y] = Ground(level, x, y)
                 else:
                     level[x, y] = Wall(level, x, y)
+        return level
 
     def view(self, x0, y0, x1, y1):
         return '\n'.join(
