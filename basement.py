@@ -155,7 +155,7 @@ def main(stdscr):
         "               #####################",
     ])
 
-    caverns = Level.generate_caverns(10)
+    caverns = Level.generate_caverns(10, 100)
 
     movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
 
