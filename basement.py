@@ -56,6 +56,9 @@ class Tile(Object):
         self.actor = None
         self.seen = False
 
+    def see(self):
+        self.seen = True
+
     @property
     def is_occupied(self):
         return self.actor is not None
