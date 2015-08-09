@@ -35,8 +35,8 @@ def caverns():
         bx = random.normalvariate(ex, sigma)
         by = random.normalvariate(ey, sigma)
         sm = 100
-        sk = 3
-        bsize = random.gammavariate(sk * beta, sk / sm)
+        sk = 30
+        bsize = random.gammavariate(sk, sk / sm)
         for x in range(size):
             for y in range(size):
                 density[x, y] += normal_density(norm2(x - bx, y - by), 0, bsize)
