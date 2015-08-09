@@ -27,6 +27,10 @@ class Actor(Object):
     def y(self):
         return self.tile.y
 
+    @property
+    def level(self):
+        return self.tile.level
+
     def move_to(self, x, y, level=None):
         if not level:
             level = self.level
