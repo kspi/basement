@@ -18,6 +18,14 @@ class Actor(Object):
         self.tile = tile
         self.level = tile.level
 
+    @property
+    def x(self):
+        return self.tile.x
+
+    @property
+    def y(self):
+        return self.tile.y
+
     def move_to(self, x, y, level=None):
         if not level:
             level = self.level
@@ -29,7 +37,7 @@ class Actor(Object):
         new_tile.actor = self
 
     def move_by(self, dx, dy):
-        self.move_to(self.tile.x + dx, self.tile.y + dy)
+        self.move_to(self.x + dx, self.y + dy)
 
 
 class Player(Actor):
