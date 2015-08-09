@@ -65,13 +65,16 @@ class Tile(Object):
         else:
             return super().__str__()
 
+
 class Ground(Tile):
     is_passable = True
     symbol = '.'
 
+
 class Wall(Tile):
     is_passable = True
     symbol = '#'
+
 
 class Level:
     BLOCK_SIZE = 10
