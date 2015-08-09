@@ -3,6 +3,7 @@ from tile import Ground
 import math
 import noise
 import random
+import numpy
 
 
 def dnorm(x, mu, sig):
@@ -23,4 +24,5 @@ def caverns(granularity, radius):
             if d > 0.09:
                 level[x, y] = Ground(level, x, y)
     return level
+
 
