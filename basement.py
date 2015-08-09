@@ -160,9 +160,9 @@ def main(stdscr):
     player = Player(caverns[0, 0])
 
     while True:
-        fov.fieldOfView(player.x, player.y, 2,
-                lambda x, y: player.level[x, y].see(),
-                lambda x, y: not player.level[x, y].is_passable)
+        #fov.fieldOfView(player.x, player.y, 2,
+        #        lambda x, y: player.level[x, y].see(),
+        #        lambda x, y: not player.level[x, y].is_passable)
 
         height, width = stdscr.getmaxyx()
         stdscr.clear()
