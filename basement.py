@@ -132,6 +132,8 @@ class Level:
                 d = dnorm(r, 0, sigma) * noise.pnoise2(x, y)
                 if d > 0.5:
                     level[x, y] = Ground(level, x, y)
+                else:
+                    level[x, y] = Wall(level, x, y)
 
     def view(self, x0, y0, x1, y1):
         return '\n'.join(
