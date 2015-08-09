@@ -47,4 +47,5 @@ def caverns():
     density /= numpy.max(density)
 
     bitmap = density > 0.5
+    print(bitmap)
     return bitmap_level(bitmap, ex, ey)
