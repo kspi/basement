@@ -126,7 +126,9 @@ class Level:
         for x in range(-extent, extent):
             for y in range(-extent, extent):
                 r = math.sqrt(x * x + y * y)
-                d = dnorm(r, 0, sigma) * noise.pnoise2(x, y)
+                n = noise.pnoise2(x, y)
+                print(n)
+                d = dnorm(r, 0, sigma) * n
                 if d > 0.001:
                     level[x, y] = Ground(level, x, y)
                 else:
