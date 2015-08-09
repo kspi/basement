@@ -59,6 +59,10 @@ class Tile(Object):
     def is_occupied(self):
         return self.actor is not None
 
+    @property
+    def transmits_light(self):
+        return self.is_passable
+
     @classmethod
     def from_symbol(cls, symbol):
         try:
