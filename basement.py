@@ -157,7 +157,7 @@ def main(stdscr):
 
     movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
 
-    player = Player(caverns[0, 0])
+    player = Player(caverns[2, 0])
 
     while True:
         fov.fieldOfView(player.x, player.y, 2,
