@@ -130,6 +130,7 @@ class Level:
             for y in range(-extent, extent):
                 r = math.sqrt(x * x + y * y)
                 d = dnorm(r, 0, sigma) * noise.pnoise2(x, y)
+                if d > 0.5:
 
     def view(self, x0, y0, x1, y1):
         return '\n'.join(
