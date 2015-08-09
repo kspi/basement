@@ -70,10 +70,11 @@ class Tile(Object):
             return cls._symbol_map[symbol]
 
     def __str__(self):
+        if not self.seen:
+            return ' '
         if self.is_occupied:
             return str(self.actor)
-        else:
-            return super().__str__()
+        return super().__str__()
 
 
 class Ground(Tile):
