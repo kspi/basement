@@ -30,6 +30,11 @@ def caverns():
     size = 300
     sigma = size / 4
     ex, ey = size / 2, size / 2
-    bitmap = numpy.ndarray((size, size), numpy.uint8)
-    centers = [(random.normalvariate(ex, sigma), random.normalvariate(ey, sigma)) for _ in range(50)]
+    density = numpy.ndarray((size, size), numpy.float32)
+    for blob in range(50):
+        x = random.normalvariate(ex, sigma)
+        y = random.normalvariate(ey, sigma)
+        sm = 10
+        sk = 3
+        size = random.gammavariate(sk, sk / sm)
     return bitmap_level(bitmap, ex, ey)
