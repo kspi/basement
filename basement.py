@@ -30,15 +30,12 @@ class Actor(Object):
     def level(self):
         return self.tile.level
 
-    def move_to(self, x, y, level=None):
-        if not level:
-            level = self.level
-        new_tile = level[x, y]
-        if not new_tile.is_passable or new_tile.is_occupied:
+    def move_to(self, tile):
+        if not tile.is_passable or tile.is_occupied:
             raise MovementObstructed
         self.tile.actor = None
-        self.tile = new_tile
-        new_tile.actor = self
+        self.tile = tile
+        tile.actor = self
 
     def move_by(self, dx, dy):
         self.move_to(self.x + dx, self.y + dy)
