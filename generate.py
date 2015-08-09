@@ -7,7 +7,7 @@ import numpy
 
 
 def dnorm(x, mu, sig):
-    return numpy.exp(-numpy.pow(x - mu, 2.) / (2 * numpy.pow(sig, 2.)))
+    return numpy.exp(-numpy.power(x - mu, 2.) / (2 * numpy.power(sig, 2.)))
 
 
 def bitmap_level(bitmap, xofs, yofs):
