@@ -143,7 +143,7 @@ def main(stdscr):
     player = Player(test_level[3, 3])
 
     while True:
-        fov.fieldOfView(player.x, player.y, 5,
+        fov.fieldOfView(player.x, player.y, 2,
                 lambda x, y: player.level[x, y].see(),
                 lambda x, y: not player.level[x, y].is_passable)
 
