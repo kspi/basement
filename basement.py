@@ -38,7 +38,7 @@ class Actor(Object):
         tile.actor = self
 
     def move_by(self, dx, dy):
-        self.move_to(self.x + dx, self.y + dy)
+        self.move_to(self.level[self.x + dx, self.y + dy])
 
 
 class Player(Actor):
