@@ -117,16 +117,16 @@ class Level:
         return level
 
     @staticmethod
-    def generate_caverns(sigma):
+    def generate_caverns(granularity, radius):
         import noise
         def dnorm(x, mu, sig):
             return math.exp(-pow(x - mu, 2.) / (2 * pow(sig, 2.)))
-        extent = int(sigma * 1.6)
+        sigma = radius / 1.6
         level = Level()
-        for x in range(-extent, extent):
-            for y in range(-extent, extent):
+        for x in range(-radius, radius):
+            for y in range(-radius, radius):
                 r = math.sqrt(x * x + y * y)
-                n = abs(noise.pnoise2(x / extent, y / extent))
+                n = abs(noise.pnoise2(x / granularity, y / granularity))
                 print(n)
                 d = dnorm(r, 0, sigma) * n
                 if d > 0.5:
