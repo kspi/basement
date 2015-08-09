@@ -54,6 +54,7 @@ class Tile(Object):
         self.x = x
         self.y = y
         self.actor = None
+        self.seen = False
 
     @property
     def is_occupied(self):
