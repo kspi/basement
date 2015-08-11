@@ -57,4 +57,4 @@ class Cockroach(Bug):
     MOVES = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
     def act(self):
-        delta = 
+        delta = random.sample(self.MOVES, 1)
