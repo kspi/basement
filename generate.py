@@ -26,5 +26,7 @@ def caverns(granularity, radius):
                 level[x, y] = Ground(level, x, y)
                 if random.uniform(0, 1) < 0.01:
                     level[x, y].items.add(Sledgehammer())
+                if random.uniform(0, 1) < 0.01:
+                    level[x, y].actor = Cockroach()
     return level
 
