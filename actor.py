@@ -58,4 +58,7 @@ class Cockroach(Bug):
 
     def act(self):
         delta = random.sample(self.MOVES, 1)[0]
-        self.move_by(*delta)
+        try:
+            self.move_by(*delta)
+        except MovementObstructed:
+            pass
