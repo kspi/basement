@@ -58,7 +58,9 @@ class Basement:
         self.stdscr.move(height // 2, width // 2)
 
     def see(self, x, y):
-        if x * x + y * y < 10 * 10:
+        dx = abs(self.player.x - x)
+        dy = abs(self.player.y - y)
+        if dx * dx + dy * dy < 10 * 10:
             self.level_memory[x, y] = self.player.level[x, y].symbol
 
     def run(self):
