@@ -57,6 +57,7 @@ class Level(InfiniteMatrix):
             if a not in in_schedule:
                 a.act()
                 new_schedule.append((self.time + a.speed, a))
+        self.schedule = sorted(new_schedule)
 
     @staticmethod
     def from_strings(lines):
