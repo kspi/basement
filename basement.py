@@ -10,9 +10,10 @@ class Basement:
 
     def __init__(self, stdscr):
         self.stdscr = stdscr
-        self.level = generate.caverns(24, 200)
         self.level_memory = InfiniteMatrix(10, lambda x, y: ' ')
-        self.player = Player(self.level[0, 0])
+
+        caverns = generate.caverns(24, 200)
+        self.player = Player(caverns[0, 0])
 
     def draw(self):
         height, width = self.stdscr.getmaxyx()
