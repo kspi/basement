@@ -57,6 +57,5 @@ class Cockroach(Bug):
     MOVES = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
     def act(self):
-        delta = random.sample(self.MOVES, 1)
-        raise Exception(repr(delta))
+        delta = random.sample(self.MOVES, 1)[0]
         self.move_by(*delta)
