@@ -43,7 +43,7 @@ class Level(InfiniteMatrix):
         self.time = 0
 
     def turn(self):
-        acted
+        acted = set()
 
     @staticmethod
     def from_strings(lines):
