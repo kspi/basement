@@ -47,7 +47,8 @@ class Level(InfiniteMatrix):
         acted = set()
         new_schedule = []
         for t, a in self.schedule:
-            if t < self.time:
+            if t <= self.time:
+
 
     @staticmethod
     def from_strings(lines):
