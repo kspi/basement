@@ -25,6 +25,9 @@ class Basement:
         caverns = generate.caverns(24, 200)
         self.player = Player(caverns[0, 0])
 
+    def act(self):
+        return False
+
     def ask(self, question):
         prevcursor = self.stdscr.getyx()
         self.stdscr.move(self.msgcursor[0], self.msgcursor[1])
