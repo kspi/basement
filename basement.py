@@ -23,7 +23,7 @@ class Basement:
         if self.player.tile.items:
             self.stdscr.addstr("You see here:\n")
             for item in self.player.tile.items:
-                self.stdscr.addstr("  " + item.name + "\n")
+                self.stdscr.addstr("    " + item.name + "\n")
         self.stdscr.move(height // 2, width // 2)
 
     def see(self, x, y):
