@@ -51,6 +51,12 @@ class Level(InfiniteMatrix):
             if t <= self.time:
                 a.act()
                 new_schedule.append((self.time + a.speed, a))
+            else:
+                new_schedule.append((t, a))
+        for a in self.actors:
+            if a not in in_schedule:
+                a.act()
+                new_schedule.append((self.time + a.speed, a))
 
     @staticmethod
     def from_strings(lines):
