@@ -19,7 +19,7 @@ class Basement:
         self.stdscr.addstr(self.msgcursor[0], self.msgcursor[1], question + " ")
         c = str(self.stdscr.getch())
         self.msgcursor = self.stdscr.getyx()
-        message(c)
+        self.message(c)
         c = str(self.stdscr.getch())
         return c
 
