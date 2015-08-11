@@ -58,3 +58,4 @@ class Cockroach(Bug):
 
     def act(self):
         delta = random.sample(self.MOVES, 1)
+        self.move_by(*delta)
