@@ -60,7 +60,7 @@ class Basement:
         self.level_memory[x, y] = self.player.level[x, y].symbol
 
     def run(self):
-        actcall = player.level.act()
+        actcall = self.player.level.act()
         while True:
             fov.fieldOfView(self.player.x, self.player.y, 10, self.see, lambda x, y: not self.player.level[x, y].is_passable)
             self.draw()
