@@ -3,13 +3,20 @@ import fov
 import generate
 from actor import Player, MovementObstructed
 from level import InfiniteMatrix
+import curses
 
 
 class Basement:
     MOVEMENT = {
-            ord('h'): (-1, 0),
-            ord('j'): (0, 1),
-            ord('k'): (0, -1), l=(1, 0))
+        ord('h'): (-1, 0),
+        curses.KEY_LEFT: (-1, 0),
+        ord('j'): (0, 1),
+        curses.KEY_DOWN: (0, 1),
+        ord('k'): (0, -1),
+        curses.KEY_UP: (0, -1),
+        ord('l'): (1, 0),
+        curses.KEY_RIGHT: (1, 0),
+    }
 
     def __init__(self, stdscr):
         self.stdscr = stdscr
@@ -70,5 +77,4 @@ def main(stdscr):
 
 
 if __name__ == '__main__':
-    from curses import wrapper
-    wrapper(main)
+    curses.wrapper(main)
