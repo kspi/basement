@@ -6,6 +6,7 @@ class Tile(Object):
         self.x = x
         self.y = y
         self.actor = None
+        self.items = set()
 
     @property
     def is_occupied(self):
@@ -19,19 +20,22 @@ class Tile(Object):
             cls._symbol_map = {c.symbol: c for c in cls.__subclasses__()}
             return cls._symbol_map[symbol]
 
-    def __str__(self):
+    @property
+    def symbol(self):
         if self.is_occupied:
-            return str(self.actor)
-        return super().__str__()
+            return self.actor.symbol
+        if self.items:
+            return next(iter(self.items)).symbol
+        return self.tile_symbol
 
 
 class Ground(Tile):
     is_passable = True
-    symbol = '.'
+    tile_symbol = '.'
 
 
 class Wall(Tile):
     is_passable = False
-    symbol = '#'
+    tile_symbol = '#'
 
 

@@ -5,37 +5,49 @@ from actor import Player, MovementObstructed
 from level import InfiniteMatrix
 
 
+class Basement:
+    MOVEMENT = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
+
+    def __init__(self, stdscr):
+        self.stdscr = stdscr
+        self.caverns = generate.caverns(24, 200)
+        self.player = Player(caverns[0, 0])
+        self.level_memory = InfiniteMatrix(10, lambda x, y: ' ')
+
+    def draw(self):
+        height, width = self.stdscr.getmaxyx()
+        self.stdscr.clear()
+        self.stdscr.addstr(self.level_memory.view(self.player.x - width // 2, self.player.y - height // 2, self.player.x + width // 2, self.player.y + height // 2))
+        self.stdscr.move(0, 0)
+        if self.player.tile.items:
+            for item in self.player.tile.items:
+                self.stdscr.addstr(item.name + "\n")
+        self.stdscr.move(height // 2, width // 2)
+
+    def see(self, x, y):
+        self.level_memory[x, y] = self.player.level[x, y].symbol
+
+    def run(self):
+        while True:
+            fov.fieldOfView(player.x, player.y, 10, see, lambda x, y: not player.level[x, y].is_passable)
+            self.draw()
+            c = chr(self.stdscr.getch())
+            if c == 'q':
+                self.stdscr.addstr(0, 0, "Really quit? [yN] ")
+                if chr(self.stdscr.getch()).lower() == 'y':
+                    return
+            elif c in 'hjkl':
+                dxy = movement[c]
+                try:
+                    player.move_by(*dxy)
+                except MovementObstructed:
+                    pass
+
+
 def main(stdscr):
-    caverns = generate.caverns()
-
-    movement = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
-
-    player = Player(caverns[0, 0])
-    memory = InfiniteMatrix(10, lambda x, y: ' ')
-
-    while True:
-        def see(x, y):
-            memory[x, y] = str(player.level[x, y])
-        fov.fieldOfView(player.x, player.y, 10, see, lambda x, y: not player.level[x, y].is_passable)
-
-        height, width = stdscr.getmaxyx()
-        stdscr.clear()
-        stdscr.addstr(memory.view(player.x - width // 2, player.y - height // 2, player.x + width // 2, player.y + height // 2))
-        stdscr.move(height // 2, width // 2)
-        c = chr(stdscr.getch())
-        if c == 'q':
-            stdscr.addstr(0, 0, "Really quit? [yN] ")
-            if chr(stdscr.getch()).lower() == 'y':
-                return
-        elif c in 'hjkl':
-            dxy = movement[c]
-            try:
-                player.move_by(*dxy)
-            except MovementObstructed:
-                pass
+    Basement(stdscr).run()
 
 
 if __name__ == '__main__':
-    #from curses import wrapper
-    #wrapper(main)
-    print(generate.caverns().view(-40, -15, 40, 15))
+    from curses import wrapper
+    wrapper(main)

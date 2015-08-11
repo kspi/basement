@@ -1,46 +1,29 @@
 from level import Level
 from tile import Ground
+from item import Sledgehammer
 import math
 import noise
 import random
-import numpy
 
 
-def norm2(x, y):
-    return numpy.sqrt(x * x + y * y)
+def dnorm(x, mu, sig):
+    return math.exp(-pow(x - mu, 2.) / (2 * pow(sig, 2.)))
 
 
-def normal_density(x, mu, sig):
-    return numpy.exp(-numpy.power(x - mu, 2.) / (2 * numpy.power(sig, 2.)))
-
-
-def bitmap_level(bitmap, xofs, yofs):
+def caverns(granularity, radius):
+    xofs = random.randint(-10000, 10000)
+    yofs = random.randint(-10000, 10000)
+    radius = int(radius)
+    sigma = radius / 3
     level = Level()
-    w, h = bitmap.shape
-    for x in range(w):
-        for y in range(h):
-            if bitmap[x, y]:
-                lx = x - xofs
-                ly = y - yofs
-                level[lx, ly] = Ground(level, lx, ly)
+    for x in range(-radius, radius):
+        for y in range(-radius, radius):
+            r = math.sqrt(x * x + y * y)
+            n = abs(noise.pnoise2((xofs + x) / granularity, (yofs + y) / granularity, octaves=3))
+            d = dnorm(r, 0, sigma) * n
+            if d > 0.09:
+                level[x, y] = Ground(level, x, y)
+                if random.uniform(0, 1) < 0.01:
+                    level[x, y].items.add(Sledgehammer())
     return level
 
-
-def caverns():
-    size = 300
-    sigma = size / 4
-    ex, ey = size // 2, size // 2
-    density = numpy.zeros((size, size), numpy.float32)
-    for blob in range(10):
-        bx = random.normalvariate(ex, sigma)
-        by = random.normalvariate(ey, sigma)
-        sm = 10
-        sk = 10
-        bsize = random.gammavariate(sk, sk / sm)
-        for x in range(size):
-            for y in range(size):
-                density[x, y] += normal_density(norm2(x - bx, y - by), 0, bsize)
-    density /= numpy.max(density)
-
-    bitmap = density > 0.5
-    return bitmap_level(bitmap, ex, ey)
