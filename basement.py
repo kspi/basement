@@ -46,7 +46,7 @@ class Basement:
             c = chr(self.stdscr.getch())
             if c == 'q':
                 self.stdscr.addstr(0, 0, "Really quit? [yN] ")
-                if chr(self.stdscr.getch()).lower() == 'y':
+                if self.ask("Really quit? [yN]").lower() == 'y':
                     return
             elif c in 'hjkl':
                 dxy = self.MOVEMENT[c]
