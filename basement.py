@@ -22,7 +22,7 @@ class Basement:
         self.stdscr = stdscr
         self.level_memory = InfiniteMatrix(10, lambda x, y: ' ')
 
-        caverns = generate.caverns(24, 200)
+        caverns = generate.caverns(24, 2000)
         self.player = Player(caverns[0, 0])
 
     def act(self):
