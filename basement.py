@@ -45,7 +45,6 @@ class Basement:
             self.draw()
             c = chr(self.stdscr.getch())
             if c == 'q':
-                self.stdscr.addstr(0, 0, "Really quit? [yN] ")
                 if self.ask("Really quit? [yN]").lower() == 'y':
                     return
             elif c in 'hjkl':
