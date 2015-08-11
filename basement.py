@@ -29,7 +29,7 @@ class Basement:
 
     def run(self):
         while True:
-            fov.fieldOfView(player.x, player.y, 10, see, lambda x, y: not player.level[x, y].is_passable)
+            fov.fieldOfView(self.player.x, self.player.y, 10, see, lambda x, y: not self.player.level[x, y].is_passable)
             self.draw()
             c = chr(self.stdscr.getch())
             if c == 'q':
@@ -39,7 +39,7 @@ class Basement:
             elif c in 'hjkl':
                 dxy = movement[c]
                 try:
-                    player.move_by(*dxy)
+                    self.player.move_by(*dxy)
                 except MovementObstructed:
                     pass
 
