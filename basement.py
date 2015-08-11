@@ -30,7 +30,7 @@ class Basement:
 
     def run(self):
         while True:
-            fov.fieldOfView(self.player.x, self.player.y, 10, see, lambda x, y: not self.player.level[x, y].is_passable)
+            fov.fieldOfView(self.player.x, self.player.y, 10, self.see, lambda x, y: not self.player.level[x, y].is_passable)
             self.draw()
             c = chr(self.stdscr.getch())
             if c == 'q':
