@@ -49,7 +49,10 @@ class Level(InfiniteMatrix):
         for t, a in self.schedule:
             in_schedule.add(a)
             if t <= self.time:
-                a.act()
+                if isinstance(a, Player):
+                    yield
+                else:
+                    a.act()
                 new_schedule.append((self.time + a.speed, a))
             else:
                 new_schedule.append((t, a))
