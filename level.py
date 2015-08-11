@@ -40,27 +40,28 @@ class Level(InfiniteMatrix):
         super().__init__(self.BLOCK_SIZE, lambda x, y: Wall(self, x, y))
         self.actors = set()
         self.schedule = []
-        self.time = 0
 
     def act(self):
-        self.time += 100
-        in_schedule = set()
-        new_schedule = []
-        for t, a in self.schedule:
-            in_schedule.add(a)
-            if t <= self.time:
-                if isinstance(a, Player):
-                    yield
+        time = 0
+        while True:
+            time += 100
+            in_schedule = set()
+            new_schedule = []
+            for t, a in self.schedule:
+                in_schedule.add(a)
+                if t <= self.time:
+                    if isinstance(a, Player):
+                        yield
+                    else:
+                        a.act()
+                    new_schedule.append((self.time + a.speed, a))
                 else:
+                    new_schedule.append((t, a))
+            for a in self.actors:
+                if a not in in_schedule:
                     a.act()
-                new_schedule.append((self.time + a.speed, a))
-            else:
-                new_schedule.append((t, a))
-        for a in self.actors:
-            if a not in in_schedule:
-                a.act()
-                new_schedule.append((self.time + a.speed, a))
-        self.schedule = sorted(new_schedule)
+                    new_schedule.append((self.time + a.speed, a))
+            self.schedule = sorted(new_schedule)
 
     @staticmethod
     def from_strings(lines):
