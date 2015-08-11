@@ -20,6 +20,7 @@ class Basement:
         c = str(self.stdscr.getch())
         self.msgcursor = self.stdscr.getyx()
         message(c)
+        c = str(self.stdscr.getch())
         return c
 
     def message(self, msg):
