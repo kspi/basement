@@ -44,6 +44,8 @@ class Level(InfiniteMatrix):
 
     def turn(self):
         acted = set()
+        new_schedule = []
+        for 
 
     @staticmethod
     def from_strings(lines):
