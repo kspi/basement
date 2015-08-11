@@ -1,4 +1,5 @@
 from common import Object
+import random
 
 
 class MovementObstructed(Exception):
@@ -48,3 +49,12 @@ class Player(Actor):
     symbol = '@'
 
 
+class Bug(Actor):
+    symbol = 'x'
+
+
+class Cockroach(Bug):
+    MOVES = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+    def act(self):
+        delta = 
