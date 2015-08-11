@@ -8,6 +8,7 @@ import curses
 
 class Basement:
     MOVEMENT = {
+        ord('.'): (0, 0),
         ord('h'): (-1, 0),
         curses.KEY_LEFT: (-1, 0),
         ord('j'): (0, 1),
