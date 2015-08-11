@@ -16,7 +16,8 @@ class Basement:
         self.player = Player(caverns[0, 0])
 
     def ask(self, question):
-        self.stdscr.addstr(self.msgcursor[0], self.msgcursor[1], question + " ")
+        self.stdscr.move(self.msgcursor[0], self.msgcursor[1])
+        self.stdscr.addstr(question + " ")
         c = chr(self.stdscr.getch())
         self.stdscr.addstr(c)
         self.msgcursor = self.stdscr.getyx()
@@ -24,7 +25,8 @@ class Basement:
 
     def message(self, msg):
         prevcursor = self.stdscr.getyx()
-        self.stdscr.addstr(self.msgcursor[0], self.msgcursor[1], msg + "\n")
+        self.stdscr.move(self.msgcursor[0], self.msgcursor[1])
+        self.stdscr.addstr(msg + "\n")
         self.msgcursor = self.stdscr.getyx()
         self.stdscr.move(*prevcursor)
 
