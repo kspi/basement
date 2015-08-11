@@ -73,6 +73,7 @@ class Basement:
                     self.player.move_by(*delta)
                 except MovementObstructed:
                     pass
+                yield from player.level.act()
 
 
 def main(stdscr):
