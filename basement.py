@@ -21,8 +21,9 @@ class Basement:
         self.stdscr.addstr(self.level_memory.view(self.player.x - width // 2, self.player.y - height // 2, self.player.x + width // 2, self.player.y + height // 2))
         self.stdscr.move(0, 0)
         if self.player.tile.items:
+            self.stdscr.addstr("You see here:\n")
             for item in self.player.tile.items:
-                self.stdscr.addstr(item.name + "\n")
+                self.stdscr.addstr("  " + item.name + "\n")
         self.stdscr.move(height // 2, width // 2)
 
     def see(self, x, y):
