@@ -23,7 +23,7 @@ class Basement:
         prevcursor = self.stdscr.getyx()
         self.stdscr.addstr(self.msgcursor[0], self.msgcursor[1], msg + "\n")
         self.msgcursor = self.stdscr.getyx()
-        self.move(*prevcursor)
+        self.stdscr.move(*prevcursor)
 
     def draw(self):
         height, width = self.stdscr.getmaxyx()
