@@ -47,21 +47,21 @@ class Level(InfiniteMatrix):
             time += 100
             in_schedule = set()
             new_schedule = []
-            for t, a in self.schedule:
+            for t, a in schedule:
                 in_schedule.add(a)
-                if t <= self.time:
+                if t <= time:
                     if isinstance(a, Player):
                         yield
                     else:
                         a.act()
-                    new_schedule.append((self.time + a.speed, a))
+                    new_schedule.append((time + a.speed, a))
                 else:
                     new_schedule.append((t, a))
             for a in self.actors:
                 if a not in in_schedule:
                     a.act()
-                    new_schedule.append((self.time + a.speed, a))
-            self.schedule = sorted(new_schedule)
+                    new_schedule.append((time + a.speed, a))
+            schedule = sorted(new_schedule)
 
     @staticmethod
     def from_strings(lines):
