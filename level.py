@@ -44,14 +44,13 @@ class Level(InfiniteMatrix):
 
     def turn(self):
         self.time += 100
-        acted = set()
+        in_schedule = set()
         new_schedule = []
         for t, a in self.schedule:
+            in_schedule.add(a)
             if t <= self.time:
                 a.act()
                 new_schedule.append((self.time + a.speed, a))
-                acted.add(a)
-            else:
 
     @staticmethod
     def from_strings(lines):
