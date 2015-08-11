@@ -60,12 +60,12 @@ class Basement:
         while True:
             fov.fieldOfView(self.player.x, self.player.y, 10, self.see, lambda x, y: not self.player.level[x, y].is_passable)
             self.draw()
-            c = chr(self.stdscr.getch())
-            if c == 'q':
+            key = self.stdscr.getch()
+            if key == ord('q'):
                 if self.ask("Really quit? [yN]").lower() == 'y':
                     return
-            elif c in 'hjkl':
-                dxy = self.MOVEMENT[c]
+            elif key in self.MOVEMENT
+                dxy = self.MOVEMENT[key]
                 try:
                     self.player.move_by(*dxy)
                 except MovementObstructed:
