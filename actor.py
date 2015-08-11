@@ -15,6 +15,9 @@ class Actor(Object):
         self.inventory = set()
         self.level.actors.add(self)
 
+    def act(self):
+        pass
+
     @property
     def x(self):
         return self.tile.x
