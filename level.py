@@ -39,10 +39,10 @@ class Level(InfiniteMatrix):
     def __init__(self):
         super().__init__(self.BLOCK_SIZE, lambda x, y: Wall(self, x, y))
         self.actors = set()
-        self.schedule = []
 
     def act(self):
         time = 0
+        schedule = []
         while True:
             time += 100
             in_schedule = set()
