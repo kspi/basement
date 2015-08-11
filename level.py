@@ -42,7 +42,7 @@ class Level(InfiniteMatrix):
         self.schedule = []
         self.time = 0
 
-    def turn(self):
+    def act(self):
         self.time += 100
         in_schedule = set()
         new_schedule = []
