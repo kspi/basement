@@ -26,7 +26,7 @@ class Basement:
         self.player = Player(caverns[0, 0])
 
     def act(self):
-        pass
+        return False
 
     def ask(self, question):
         prevcursor = self.stdscr.getyx()
