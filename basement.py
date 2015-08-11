@@ -60,7 +60,7 @@ class Basement:
         self.level_memory[x, y] = self.player.level[x, y].symbol
 
     def run(self):
-        others = player.level.act()
+        actcall = player.level.act()
         while True:
             fov.fieldOfView(self.player.x, self.player.y, 10, self.see, lambda x, y: not self.player.level[x, y].is_passable)
             self.draw()
@@ -74,7 +74,7 @@ class Basement:
                     self.player.move_by(*delta)
                 except MovementObstructed:
                     pass
-                next(others)
+                next(actcall)
 
 
 def main(stdscr):
