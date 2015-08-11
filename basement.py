@@ -29,7 +29,7 @@ class Basement:
         height, width = self.stdscr.getmaxyx()
         self.stdscr.clear()
         self.stdscr.addstr(self.level_memory.view(self.player.x - width // 2, self.player.y - height // 2, self.player.x + width // 2, self.player.y + height // 2))
-        self.stdscr.move(0, 0)
+        self.msgcursor = (0, 0)
         if self.player.tile.items:
             self.stdscr.addstr("You see here:\n")
             for item in self.player.tile.items:
