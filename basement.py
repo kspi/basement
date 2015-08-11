@@ -37,7 +37,7 @@ class Basement:
                 if chr(self.stdscr.getch()).lower() == 'y':
                     return
             elif c in 'hjkl':
-                dxy = movement[c]
+                dxy = self.MOVEMENT[c]
                 try:
                     self.player.move_by(*dxy)
                 except MovementObstructed:
