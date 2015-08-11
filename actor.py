@@ -6,6 +6,8 @@ class MovementObstructed(Exception):
 
 
 class Actor(Object):
+    speed = 100
+
     def __init__(self, tile):
         assert(not tile.is_occupied)
         tile.actor = self
