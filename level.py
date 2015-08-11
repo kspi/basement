@@ -39,7 +39,7 @@ class Level(InfiniteMatrix):
     def __init__(self):
         super().__init__(self.BLOCK_SIZE, lambda x, y: Wall(self, x, y))
         self.actors = set()
-        self.schedule = {}
+        self.schedule = []
 
     def ac
 
