@@ -43,9 +43,11 @@ class Level(InfiniteMatrix):
         self.time = 0
 
     def turn(self):
+        self.time += 100
         acted = set()
         new_schedule = []
-        for 
+        for t, a in self.schedule:
+            if t < self.time:
 
     @staticmethod
     def from_strings(lines):
