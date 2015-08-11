@@ -64,7 +64,7 @@ class Basement:
             if key == ord('q'):
                 if self.ask("Really quit? [yN]").lower() == 'y':
                     return
-            elif key in self.MOVEMENT
+            elif key in self.MOVEMENT:
                 delta = self.MOVEMENT[key]
                 try:
                     self.player.move_by(*delta)
