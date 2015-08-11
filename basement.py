@@ -65,9 +65,9 @@ class Basement:
                 if self.ask("Really quit? [yN]").lower() == 'y':
                     return
             elif key in self.MOVEMENT
-                dxy = self.MOVEMENT[key]
+                delta = self.MOVEMENT[key]
                 try:
-                    self.player.move_by(*dxy)
+                    self.player.move_by(*delta)
                 except MovementObstructed:
                     pass
 
