@@ -31,6 +31,9 @@ class Actor(Object):
         self.tile.actor = None
         self.tile = tile
         tile.actor = self
+        if self.tile.level != tile.level:
+            self.tile.level.actors.remove(self)
+            tile.level.actors.add(self)
 
     def move_by(self, dx, dy):
         self.move_to(self.level[self.x + dx, self.y + dy])
