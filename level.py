@@ -1,5 +1,6 @@
 import math
 from tile import Tile, Wall
+from actor import Player
 
 
 class InfiniteMatrix:
