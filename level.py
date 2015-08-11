@@ -62,7 +62,7 @@ class Level(InfiniteMatrix):
                 if a not in in_schedule:
                     a.act()
                     new_schedule.append((time + a.speed, a))
-            schedule = sorted(new_schedule, key=lambda (t, a): t)
+            schedule = sorted(new_schedule, key=lambda ta: ta[0])
 
     @staticmethod
     def from_strings(lines):
