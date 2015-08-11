@@ -11,6 +11,7 @@ class Actor(Object):
         tile.actor = self
         self.tile = tile
         self.inventory = set()
+        self.level.actors.add(self)
 
     @property
     def x(self):
