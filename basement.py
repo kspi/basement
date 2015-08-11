@@ -6,7 +6,10 @@ from level import InfiniteMatrix
 
 
 class Basement:
-    MOVEMENT = dict(h=(-1, 0), j=(0, 1), k=(0, -1), l=(1, 0))
+    MOVEMENT = {
+            ord('h'): (-1, 0),
+            ord('j'): (0, 1),
+            ord('k'): (0, -1), l=(1, 0))
 
     def __init__(self, stdscr):
         self.stdscr = stdscr
