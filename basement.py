@@ -15,8 +15,11 @@ class Basement:
         caverns = generate.caverns(24, 200)
         self.player = Player(caverns[0, 0])
 
-    def print_message(self, msg):
-        self.addstr(self.msgcursor[0], self.msgcursor[1], " ")
+    def ask(self, question):
+        self.addstr(self.msgcursor[0], self.msgcursor[1], question + " ")
+
+    def message(self, msg):
+        self.addstr(self.msgcursor[0], self.msgcursor[1], msg + " ")
         self.msgcursor = self.stdscr.getyx()
 
     def draw(self):
