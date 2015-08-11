@@ -17,7 +17,9 @@ class Basement:
 
     def ask(self, question):
         self.stdscr.addstr(self.msgcursor[0], self.msgcursor[1], question + " ")
-        return str(self.stdscr.getch())
+        c = str(self.stdscr.getch())
+        self.msgcursor = self.stdscr.getyx()
+        return c
 
     def message(self, msg):
         prevcursor = self.stdscr.getyx()
