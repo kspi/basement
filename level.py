@@ -41,7 +41,7 @@ class Level(InfiniteMatrix):
         self.actors = set()
         self.schedule = []
 
-    def ac
+    def act(self):
 
     @staticmethod
     def from_strings(lines):
