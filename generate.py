@@ -1,6 +1,7 @@
 from level import Level
 from tile import Ground
 from item import Sledgehammer
+from actor import Cockroach
 import math
 import noise
 import random
