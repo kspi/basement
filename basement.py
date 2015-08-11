@@ -15,6 +15,8 @@ class Basement:
         caverns = generate.caverns(24, 200)
         self.player = Player(caverns[0, 0])
 
+    def msg(self):
+
     def draw(self):
         height, width = self.stdscr.getmaxyx()
         self.stdscr.clear()
