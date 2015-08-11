@@ -48,7 +48,8 @@ class Level(InfiniteMatrix):
         new_schedule = []
         for t, a in self.schedule:
             if t <= self.time:
-
+                a.act()
+                new_schedule.append((self.time + a.speed))
 
     @staticmethod
     def from_strings(lines):
