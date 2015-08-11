@@ -38,6 +38,7 @@ class Level(InfiniteMatrix):
 
     def __init__(self):
         super().__init__(self.BLOCK_SIZE, lambda x, y: Wall(self, x, y))
+        self.actors = set()
 
     @staticmethod
     def from_strings(lines):
