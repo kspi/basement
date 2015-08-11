@@ -40,6 +40,7 @@ class Level(InfiniteMatrix):
         super().__init__(self.BLOCK_SIZE, lambda x, y: Wall(self, x, y))
         self.actors = set()
         self.schedule = []
+        self.time = 0
 
     def turn(self):
         acted
